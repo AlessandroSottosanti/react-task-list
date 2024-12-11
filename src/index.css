@@ -29,3 +29,9 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 .list-container:first-of-type {
   border-bottom: 2px solid rgb(209, 209, 209);
 }
+
+.tag {
+  margin-left: 5px;
+  padding: 5px 10px;
+  color: white;
+}

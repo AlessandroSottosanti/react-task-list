@@ -10,10 +10,15 @@ function App() {
       elements: undoneTasks.map(task => (
         <li key={task.id}>
           <ul>
-            <li><strong>{task.title}</strong></li>
+          <li>
+              <strong>{task.title}</strong>
+              <span className="tag" style={{ backgroundColor: getTagColor(task.state) }}>
+                {task.state}
+              </span>
+            </li>
+
             <li>Priority: {task.priority}</li>
             <li>Est. time: {task.estimatedTime}</li>
-            <li>State: {task.state}</li>
           </ul>
         </li>
       ))
@@ -22,20 +27,41 @@ function App() {
 
   function getDoneTasks() {
     const doneTasks = tasks.filter(task => task.state === "completed");
+
     return {
       count: doneTasks.length,
       elements: doneTasks.map(task => (
         <li key={task.id}>
           <ul>
-            <li><strong>{task.title}</strong></li>
+            <li>
+              <strong>{task.title}</strong>
+              <span className="tag" style={{ backgroundColor: getTagColor(task.state) }}>
+                {task.state}
+              </span>
+            </li>
+
             <li>Priority: {task.priority}</li>
             <li>Est. time: {task.estimatedTime}</li>
-            <li>State: {task.state}</li>
           </ul>
         </li>
       ))
     };
   }
+
+  
+  // Funzione per determinare il colore del tag
+  const getTagColor = (state) => {
+    switch (state) {
+      case "backlog":
+        return "orangered";
+      case "in_progress":
+        return "yellowgreen";
+      case "completed":
+        return "green";
+      default:
+        return "orangered"; // Colore di default
+    }
+  };
 
   const undoneTasksData = getUndoneTasks();
   const doneTasksData = getDoneTasks();
