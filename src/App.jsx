@@ -44,14 +44,16 @@ function App() {
     <>
       <h1 className='title'>Task Manager</h1>
       <div className='container'>
-        <h2>Current Tasks ({undoneTasksData.count})</h2>
-        <ul>{undoneTasksData.elements}</ul>
-      </div>
+        <div className='list-container'>
+          <h2>Current Tasks ({undoneTasksData.count})</h2>
+          <ul>{undoneTasksData.elements}</ul>
+        </div>
 
-      <hr />
-      <div className='container'>
-        <h2>Completed Tasks ({doneTasksData.count})</h2>
-        <ul>{doneTasksData.elements}</ul>
+        <div className='list-container'>
+          <h2>Completed Tasks ({doneTasksData.count})</h2>
+          <ul>{doneTasksData.elements}</ul>
+        </div>
+
       </div>
     </>
   );
